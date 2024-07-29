@@ -12,11 +12,11 @@ To handle navigation state, use the {{navigation}} prop in your components (simi
 ### 3. Navigating on Click
 For navigation actions in event handlers, use navigation.navigate('ScreenName') to navigate to the desired screen.
 ## Navigating Between Different Stacks
-###1. Setting Up Multiple Navigators
+### 1. Setting Up Multiple Navigators
 Create separate navigators such as `AppNavigator.js` and `AuthNavigator.js`<br>
 In `RootNavigator.js`, define names for these navigators and manipulate the initialRouteName to switch between them based on authentication status (e.g., show the app navigator if a token exists, otherwise show the auth navigator).
-###2. Managing Navigation Reset
-When resetting navigation (e.g., after login), use navigation.reset without altering the index.
+### 2. Managing Navigation Reset
+When resetting navigation (e.g., after login), use navigation.reset without altering the index.<br>
 In the routes array, place the navigator as the first parameter and the screen name as the second parameter, then perform the reset.
 ## Acknowledgments
 
