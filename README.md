@@ -1,26 +1,29 @@
-# react-native-navigation
-## stackin icerisindeki diger componente gecmek (tabagi kaldirmak veya yenisini koyma)
+# React Native Navigation Guide
+## Overview
+This guide covers how to navigate between screens using React Native Navigation. We will go through configuring navigation stacks, handling state transitions, and managing different navigators.
 
-1- navigator folderina girip app navigatora yeni bir satir ekleyin.<br>
-reactteki `path` ve `element` parametreleri burada `name` ve `element` seklindedir.<br>
-name yerine isim girecegiz, endpoint degil. 
+## Navigation Between Screens
+### 1. Adding New Routes
+Navigate to the navigator folder and add a new line to AppNavigator.js.
+In React, you use window.location.href = "/endpoint" to redirect to a specific endpoint. In React Native Navigation, we use name and element parameters instead of path and component.
+Replace name with your desired screen name (not an endpoint).
+### 2. Handling Navigation State
+To handle navigation state, use the {{navigation}} prop in your components (similar to how it’s done in `HomeScreen.js` and `SecondScreen.js`).
+### 3. Navigating on Click
+For navigation actions in event handlers, use navigation.navigate('ScreenName') to navigate to the desired screen.
+## Navigating Between Different Stacks
+###1. Setting Up Multiple Navigators
+Create separate navigators such as `AppNavigator.js` and `AuthNavigator.js`<br>
+In `RootNavigator.js`, define names for these navigators and manipulate the initialRouteName to switch between them based on authentication status (e.g., show the app navigator if a token exists, otherwise show the auth navigator).
+###2. Managing Navigation Reset
+When resetting navigation (e.g., after login), use navigation.reset without altering the index.
+In the routes array, place the navigator as the first parameter and the screen name as the second parameter, then perform the reset.
+## Acknowledgments
 
-reactte window.location.href = "/endpoint" yapiyorduk. sekmeyi yonlendiriyorduk, bu sayede o endpointi handle eden component aciliyordu.<br>
-2- simdi componentlere gonderilmis statei handle eder gibi {{navigation}} yazip koyuyoruz. (HomeScreen, SecondScreen.js dosyalarindaki gibi)
-<br>
-
-3- onClick()'lere, `navigation.navigate(`sayfaIsmi`)}` seklinde yapiyoruz. ve bu is bu kadar.
+This repository has been updated and enhanced thanks to Mr.YAKUP , a Computer Engineering student at Pamukkale University, who has contributed significantly to its development as of June 2024. Without his contributions, this repository would be in a much less polished state.
 
 
-## stackten cikip diger stacke gecmek (tabak ekleyip cikartadan, durulayip baska tabaklara gecme sekli)
+Feel free to customize further if there are additional details or sections you’d like to include!
 
-1- gidin AB, CD gibi AppNavigator.js ve AuthNavigator.js olusturun. <br>
-2- Rootnavigator'da onlara isim verin ve initialRouteNameu bizim yaptigimiz gibi manipule edin (token varsa app, yoksa authu aciversin)<br>
-3- login metoduna gittiginiz zaman, navigation.reset yaptiginiz zaman indexi ellemeyin.<br>
-routes'in icerisinde birinci parametreye navigatoru, ikinci parametreye de screenin ismini KOYUN VE ZIMBALAYIN.
 
-<br>
-<br>
-bu repo, haziran 2024 itibariyle 5. sinifa gecmis olan, PAMUKKALE UNIVERSITESI BILGISAYAR MUHENDISLIGI OGRENCISI YAKUP BEY sayesinde guncellenmis ve gelistirilmistir. o olmasa bu repo bombok halde olurdu.
-<br>
-temmuz 2024, emirhan karakoc.
+
